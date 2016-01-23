@@ -1,0 +1,42 @@
+<% content_for(:title, "S c i F a n") %>
+  <div class="container">
+      <br>
+    <div class="container" id="movies">
+      <%= render(@movies) %>
+    </div>
+  </div>
+
+    <!-- Modal create action -->
+  <%= form_for(@movie, remote: true) do |f| %>
+    <div class="modal fade" id="mynewmovie" tableindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLebal">Add Movie</h4>
+          </div>
+
+          <div class="modal-body">
+            <div class="field">
+              <%= f.label :Movie_name %>
+              <%= f.text_area :name, class: "form-control movie_name" %>
+            </div>
+            <div class="field">
+              <%= f.label :Synopsis %>
+              <%= f.text_area :information, class: "form-control movie_information" %>
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal" id="mynewmovieclose">Close</button>
+            <%= submit_tag "Create", class: "btn btn-primary" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+  <%= will_paginate @movies, renderer: BootstrapPagination::Rails, previous_label: "Older", next_label: "Newer", inner_window: 1, outer_window: 0 %>
+
+  <!-- Modal -->

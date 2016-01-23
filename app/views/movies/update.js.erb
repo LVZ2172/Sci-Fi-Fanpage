@@ -1,0 +1,7 @@
+$("#myupdatemovie_<%= @movie.id %>").modal('hide');
+
+$("#movie_<%= @movie.id %>").fadeOut(500, function(){
+
+	$(this).remove();
+	$("#movies").prepend('<%= j render @movie %>');
+});

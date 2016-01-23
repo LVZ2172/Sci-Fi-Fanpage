@@ -1,0 +1,21 @@
+<div id="bootstrap-override">
+<div class="col-md-12 blog-main box text-center boxo" id="review_<%= review.id %>">
+
+<!-- Panel Info -->
+ <div class="panel panel-info" id="override2">
+   <div class="panel-heading">
+    <h3 class="panel-title">
+      <%= review.author %> - <%= review.rating %>
+    </h3>
+  </div>
+  <!-- Panel Body -->
+  <div class="panel-body">
+    <p><%= review.text %></p>
+    <div style="color: #3BB2D6">
+      <%= time_ago_in_words(review.created_at) %>
+    </div>
+   </div>
+   <%= link_to 'Destroy', movie_review_path(@movie, review.id), method: :delete, class: "btn btn-danger btn-xs", remote: true %>
+  </div>
+ </div>
+ </div>

@@ -1,0 +1,9 @@
+$("#movie_<%= @movie.id %>").fadeOut(500, function(){
+	$(this).remove();
+});
+$('#notice').load(document.URL +  ' #notice');
+$('#notice').fadeOut(10000, function(){
+	$('#notice').empty();
+	$('#notice').show();
+});
+$('#override').load(document.URL +  ' #override');

@@ -1,0 +1,77 @@
+@import 'bootstrap';
+@import 'bootstrap-sprockets';
+
+#bootstrap-override .jumbotron {
+  padding-top: 0;
+  background-image: url("aperture.png");
+  background-repeat: no-repeat;
+  background-size: 10%;
+  background-position: 5%;
+}
+
+.moviecontent {
+  color: white;
+}
+
+
+p#content {
+  float: left;
+  margin-right: 10px;
+  margin-bottom: 5px;
+  border: solid white 1px;
+  padding: 2px;
+}
+
+.btn-group#buttons {
+  text-align: left;
+}
+
+.well{
+  list-style-type: none;
+
+}
+.container#banner {
+  color: white;
+  font-family: orbitron;
+}
+
+.panel-primary#override {
+  box-shadow: 7px 7px 5px 0px rgba(50, 50, 50, 0.75);
+  margin-bottom: 5px;
+  background-color: black;
+  color: white;
+}
+
+.panel-info#override2 {
+  width: 90%;
+  background-color: black;
+  color: white;
+}
+
+#bootstrap-override .jumbotron {
+  background-color: black;
+
+  h1 {
+    color: white;
+  }
+}
+
+body#bootstrap-override {
+  margin-bottom: 0;
+  font-family: orbitron;
+  letter-spacing: 2.5px;
+  background: url(forest.jpg) center no-repeat;
+}
+
+#notice {
+  color: #3EFF5C;
+}
+
+div.modal div.modal-content div.modal-dialog div.modal-body div.modal-header div.modal-footer {
+    z-index: 0;
+}
+
+
+#bootstrap-override .modal-backdrop {
+  position: relative;
+}

@@ -1,0 +1,16 @@
+$('#mynewreview').hide();
+$('#reviews').append('<%= j render(@review) %>');
+$('#rating').fadeOut(1000, function(){
+	$('#rating').empty();
+	$('#rating').append('<%= @movie.rating_average  %>').fadeIn(1000);
+});
+$('#review').fadeOut(1000, function(){
+	$('#review').empty();
+	$('#review').append('<%= @movie.review_number  %>').fadeIn(1000);
+});
+$('body').removeClass('modal-open');
+$('#notice').load(document.URL +  ' #notice');
+$('#notice').fadeOut(10000, function(){
+	$('#notice').empty();
+	$('#notice').show();
+});

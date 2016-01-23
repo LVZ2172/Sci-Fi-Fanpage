@@ -1,0 +1,8 @@
+$('#mynewmovie').hide();
+$('#movies').append('<%= j render(@movie) %>');
+$('#notice').load(document.URL +  ' #notice');
+$('#notice').fadeOut(10000, function(){
+	$('#notice').empty();
+	$('#notice').show();
+});
+$('#override').load(document.URL +  ' #override');

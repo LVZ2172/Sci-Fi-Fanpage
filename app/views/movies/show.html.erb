@@ -1,0 +1,59 @@
+<% content_for(:title, "S c i F a n | Movie") %>
+
+<div class="moviecontent">
+<h1><%= @movie.name %></h1>
+  <h3><b><span id="rating"><%= @movie.rating_average %></span> Average</b> rating out of
+    <b><span id="review"><%= @movie.review_number %></span> reviews</b></h3>
+<div class="container">
+<h4>Synopsis</h4>
+<h5>- <%= @movie.information %></h2>
+</div>
+  <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#mynewreview">
+    Add A Review
+  </button>
+  <div class="container">
+  <h4>Reviews:</h4>
+</div>
+  <div class="container" id="reviews">
+    <%= render(@movie.reviews.where(@movie.id)) %>
+  </div>
+</div>
+</div>
+
+                  <!-- Modal -->
+
+  <%= form_for([@movie, @review], remote: true) do |f| %>
+    <div class="modal fade" id="mynewreview" tableindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLebal"><%= @movie.name %> Review</h4>
+          </div>
+
+          <div class="modal-body">
+            <div class="field">
+              <%= f.label :author %>
+              <%= f.text_field :author, class: "form-control review_author" %>
+            </div>
+            <div class="field">
+              <%= f.label :text %>
+              <%= f.text_area :text, class: "form-control review_text" %>
+            </div>
+            <div class="form-group">
+              <%= f.label :rating, class: "col-md-4 control-label" %>
+              <div class="col-md-8">
+                <%= f.select(:rating, options_for_select([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]), {}, {class: "form-control "}) %>
+              </div>
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal" id="mynewreviewclose">Close</button>
+            <%= submit_tag "Create", class: "btn btn-primary" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
